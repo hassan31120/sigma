@@ -7,13 +7,13 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="#" target="_blank">
 
-                <img src="{{ asset('dash/img/logos/sheep_icon_white.png') }}" class="navbar-brand-img h-100"
-                    alt="main_logo">
-                <span class="me-1 font-weight-bold text-white"
+                <img src="{{ asset('dash/img/logos/Untitled-3.png') }}" class="navbar-brand-img h-100"
+                    style="margin-top: -53px;max-height: 60% !important;width: 75%;" alt="main_logo">
+                {{-- <span class="me-1 font-weight-bold text-white"
                     style="
                 font-weight: 900;
                 margin-right: 15px !important;
-            ">ذبائح</span>
+            ">ذبائح</span> --}}
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
@@ -30,87 +30,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/noti' ? 'active' : '' }}"
-                        href="{{ route('admin.noti') }}">
+                    <a class="nav-link {{ Request::path() == 'admin/info' ? 'active' : '' }}"
+                        href="{{ route('admin.info') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-bell"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <span class="nav-link-text me-1">الإشعارات</span>
+                        <span class="nav-link-text me-1">البيانات</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/cities' ? 'active' : '' }}"
-                        href="{{ route('admin.cities') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <span class="nav-link-text me-1">المحافظات</span>
-                    </a>
-                </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/addresses' ? 'active' : '' }}"
-                        href="{{ route('admin.addresses') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
-                        </div>
-                        <span class="nav-link-text me-1">العناوين</span>
-                    </a>
-                </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/orders' ? 'active' : '' }}"
-                        href="{{ route('admin.orders') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-tags"></i>
-                        </div>
-                        <span class="nav-link-text me-1">الطلبيات</span>
-                    </a>
-                </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/news' ? 'active' : '' }}"
-                        href="{{ route('admin.news') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
-                        </div>
-                        <span class="nav-link-text me-1">الأخبار</span>
-                    </a>
-                </li> --}}
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/banners' ? 'active' : '' }}"
-                        href="{{ route('admin.banners') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-images"></i>
-                        </div>
-                        <span class="nav-link-text me-1">الصور</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/categories' ? 'active' : '' }}"
-                        href="{{ route('admin.categories') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <span class="nav-link-text me-1">الأقسام</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/products' ? 'active' : '' }}"
-                        href="{{ route('admin.products') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fab fa-product-hunt"></i>
-                        </div>
-                        <span class="nav-link-text me-1">كل المنتجات</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/setting/edit/1' ? 'active' : '' }}"
-                        href="{{ route('admin.setting.edit', 1) }}">
+                    <a class="nav-link {{ Request::path() == 'admin/partners' ? 'active' : '' }}"
+                        href="{{ route('admin.partners') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-cog"></i>
                         </div>
-                        <span class="nav-link-text me-1">الإعدادات</span>
+                        <span class="nav-link-text me-1">الشركاء</span>
                     </a>
                 </li>
-
             </ul>
             <div class="sidenav-footer position-absolute w-100" style="bottom: 0">
                 <div class="mx-3">
