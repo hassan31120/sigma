@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\TeamController;
@@ -57,6 +58,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('admin.team.edit');
     Route::post('/team/update/{id}', [TeamController::class, 'update'])->name('admin.team.update');
     Route::get('/team/destroy/{id}', [TeamController::class, 'destroy'])->name('admin.team.destroy');
+
+    // contacts
+    Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
+    Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
 
     // // Settings
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
