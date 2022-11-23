@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/partner/edit/{id}', [PartnerController::class, 'edit'])->name('admin.partner.edit');
     Route::post('/partner/update/{id}', [PartnerController::class, 'update'])->name('admin.partner.update');
     Route::get('/partner/destroy/{id}', [PartnerController::class, 'destroy'])->name('admin.partner.destroy');
+
+    // teams
+    Route::get('/teams', [TeamController::class, 'index'])->name('admin.teams');
+    Route::get('/team/create', [TeamController::class, 'create'])->name('admin.team.create');
+    Route::post('/team/store', [TeamController::class, 'store'])->name('admin.team.store');
+    Route::get('/team/edit/{id}', [TeamController::class, 'edit'])->name('admin.team.edit');
+    Route::post('/team/update/{id}', [TeamController::class, 'update'])->name('admin.team.update');
+    Route::get('/team/destroy/{id}', [TeamController::class, 'destroy'])->name('admin.team.destroy');
 
     // // Settings
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
