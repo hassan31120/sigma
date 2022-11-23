@@ -57,6 +57,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/services' ? 'active' : '' }}"
+                        href="{{ route('admin.services') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الخدمات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/contacts' ? 'active' : '' }}"
                         href="{{ route('admin.contacts') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +63,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     // contacts
     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
     Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
+
+    // services
+    Route::get('/services', [ServiceController::class, 'index'])->name('admin.services');
+    Route::get('/service/create', [ServiceController::class, 'create'])->name('admin.service.create');
+    Route::post('/service/store', [ServiceController::class, 'store'])->name('admin.service.store');
+    Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('admin.service.edit');
+    Route::post('/service/update/{id}', [ServiceController::class, 'update'])->name('admin.service.update');
+    Route::get('/service/destroy/{id}', [ServiceController::class, 'destroy'])->name('admin.service.destroy');
 
     // // Settings
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
