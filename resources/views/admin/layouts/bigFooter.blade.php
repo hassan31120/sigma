@@ -4,6 +4,14 @@
 <script src="{{ asset('dash/js/plugins/smooth-scrollbar.min.js') }}"></script>
 <script src="{{ asset('dash/js/plugins/chartjs.min.js') }}"></script>
 <script src="{{ asset('dash/js/material-dashboard.min.js?v=3.0.0') }}"></script>
+<!-- start text editor -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script type="text/javascript">
+    $('#summernote').summernote({
+        height: 300
+    });
+</script>
+<!-- end text editor -->
 
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -292,7 +300,9 @@
         $('#myOptionsDiv').html('');
         var num = $(this).val();
         if (num == 2 || num == 3) {
-            $('#myOptionsDiv').append('<label for="" class="form-label" style="font-size: 18px">الفئة المستهدفة</label><div class="row"><div class="col-6"><input type="number" name="from" placeholder="من" id="body" class="form-control form-control-lg formborderCSS"/></div><div class="col-6"><input type="number" name="to" placeholder="الى" id="body" class="form-control form-control-lg formborderCSS"/></div></div>');
+            $('#myOptionsDiv').append(
+                '<label for="" class="form-label" style="font-size: 18px">الفئة المستهدفة</label><div class="row"><div class="col-6"><input type="number" name="from" placeholder="من" id="body" class="form-control form-control-lg formborderCSS"/></div><div class="col-6"><input type="number" name="to" placeholder="الى" id="body" class="form-control form-control-lg formborderCSS"/></div></div>'
+                );
         }
     });
 </script>
