@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamController;
@@ -64,6 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     // contacts
     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts');
     Route::get('/contact/destroy/{id}', [ContactController::class, 'destroy'])->name('admin.contact.destroy');
+
+    // orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders');
+    Route::get('/order/destroy/{id}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
 
     // services
     Route::get('/services', [ServiceController::class, 'index'])->name('admin.services');
