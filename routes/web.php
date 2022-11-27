@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
@@ -85,6 +86,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/article/edit/{id}', [ArticleController::class, 'edit'])->name('admin.article.edit');
     Route::post('/article/update/{id}', [ArticleController::class, 'update'])->name('admin.article.update');
     Route::get('/article/destroy/{id}', [ArticleController::class, 'destroy'])->name('admin.article.destroy');
+
+    // apps
+    Route::get('/apps', [AppController::class, 'index'])->name('admin.apps');
+    Route::get('/app/create', [AppController::class, 'create'])->name('admin.app.create');
+    Route::post('/app/store', [AppController::class, 'store'])->name('admin.app.store');
+    Route::get('/app/edit/{id}', [AppController::class, 'edit'])->name('admin.app.edit');
+    Route::post('/app/update/{id}', [AppController::class, 'update'])->name('admin.app.update');
+    Route::get('/app/destroy/{id}', [AppController::class, 'destroy'])->name('admin.app.destroy');
 
     // // Settings
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
