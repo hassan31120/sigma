@@ -165,17 +165,17 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="row">
+                                                        {{-- <div class="row">
                                                             <div class="col-md-12 mb-4">
                                                                 <div class="form-outline">
                                                                     <label class="form-label" for="images"
                                                                         style="font-size: 18px">الصور</label>
                                                                     <input type="file" name="images" id="images"
                                                                         class="form-control form-control-lg formborderCSS"
-                                                                        required multiple />
+                                                                        multiple>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
                                                         <div class="row">
                                                             <label class="form-label text-center"

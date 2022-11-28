@@ -8,7 +8,10 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <script type="text/javascript">
     $('#summernote').summernote({
-        height: 300
+        height: 200
+    });
+    $('#summernote1').summernote({
+        height: 200
     });
 </script>
 <!-- end text editor -->

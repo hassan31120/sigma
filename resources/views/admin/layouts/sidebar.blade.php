@@ -75,6 +75,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/cats' ? 'active' : '' }}"
+                        href="{{ route('admin.cats') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الأقسام</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/products' ? 'active' : '' }}"
+                        href="{{ route('admin.products') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <span class="nav-link-text me-1">المنتجات</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/services' ? 'active' : '' }}"
                         href="{{ route('admin.services') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">

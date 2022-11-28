@@ -51,7 +51,7 @@ class AppController extends Controller
             'c_body' => 'required',
             'c_logo' => 'required',
         ]);
-        $data = $request->all();
+        $data = $request->except('images');
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
@@ -74,18 +74,18 @@ class AppController extends Controller
             $data['c_logo'] = $name;
         }
         $app = App::create($data);
-        foreach ($request->file('images') as $image) {
-            // $file = $image->file('image');
-            $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
-            // $name = $path . time() . '-' . $file->getClientOriginalName();
-            // $file->move($path, $name);
-            $imageName = $path . $data['title'] . '-image-' . time() . rand(0, 1000) . '.' . $image->extension();
-            $image->move($path, $imageName);
-            AppImage::create([
-                'app_id' => $app->id,
-                'image' => $name
-            ]);
-            dd('hi');
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $file = $image;
+                $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
+                $name = $path . time() . '-' . $file->getClientOriginalName();
+                $file->move($path, $name);
+                AppImage::create([
+                    'app_id' => $app->id,
+                    'image' => $name
+                ]);
+            }
         }
         return redirect(route('admin.apps'))->with('success', 'تم إضافة المشروع بنجاح');
     }
@@ -122,7 +122,60 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $app = App::find($id);
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+            // 'image' => 'required',
+            'price' => 'required|numeric',
+            'b_head' => 'required',
+            'b_body' => 'required',
+            // 'b_image' => 'required',
+            'pages' => 'required|numeric',
+            'downlaods' => 'required|numeric',
+            'customers' => 'required|numeric',
+            'country' => 'required|numeric',
+            'c_name' => 'required',
+            'c_body' => 'required',
+            // 'c_logo' => 'required',
+        ]);
+        $data = $request->except('images');
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
+            $name = $path . time() . '-' . $file->getClientOriginalName();
+            $file->move($path, $name);
+            $data['image'] = $name;
+        }
+        if ($request->hasFile('b_image')) {
+            $file = $request->file('b_image');
+            $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
+            $name = $path . time() . '-' . $file->getClientOriginalName();
+            $file->move($path, $name);
+            $data['b_image'] = $name;
+        }
+        if ($request->hasFile('c_logo')) {
+            $file = $request->file('c_logo');
+            $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
+            $name = $path . time() . '-' . $file->getClientOriginalName();
+            $file->move($path, $name);
+            $data['c_logo'] = $name;
+        }
+        $app->update($data);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $file = $image;
+                $path = 'storage/images/apps/' . date('Y') . '/' . date('m') . '/';
+                $name = $path . time() . '-' . $file->getClientOriginalName();
+                $file->move($path, $name);
+                AppImage::create([
+                    'app_id' => $app->id,
+                    'image' => $name
+                ]);
+            }
+        }
+        return redirect(route('admin.apps'))->with('success', 'تم تعديل المشروع بنجاح');
     }
 
     /**
@@ -133,6 +186,8 @@ class AppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $app = App::find($id);
+        $app->delete();
+        return redirect(route('admin.apps'))->with('success', 'تم حذف المشروع بنجاح');
     }
 }

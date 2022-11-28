@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\CatController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\InfoController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
@@ -94,6 +96,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/app/edit/{id}', [AppController::class, 'edit'])->name('admin.app.edit');
     Route::post('/app/update/{id}', [AppController::class, 'update'])->name('admin.app.update');
     Route::get('/app/destroy/{id}', [AppController::class, 'destroy'])->name('admin.app.destroy');
+
+    // cats
+    Route::get('/cats', [CatController::class, 'index'])->name('admin.cats');
+    Route::get('/cat/create', [CatController::class, 'create'])->name('admin.cat.create');
+    Route::post('/cat/store', [CatController::class, 'store'])->name('admin.cat.store');
+    Route::get('/cat/edit/{id}', [CatController::class, 'edit'])->name('admin.cat.edit');
+    Route::post('/cat/update/{id}', [CatController::class, 'update'])->name('admin.cat.update');
+    Route::get('/cat/destroy/{id}', [CatController::class, 'destroy'])->name('admin.cat.destroy');
+
+    // products
+    Route::get('/products', [ProductController::class, 'index'])->name('admin.products');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::post('/product/store', [ProductController::class, 'store'])->name('admin.product.store');
+    Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+    Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
 
     // // Settings
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');

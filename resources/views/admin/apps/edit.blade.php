@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-    الخدمات
+    المشاريع البرمجية
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 row">
                         <div class="col-6">
-                            <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px">تعديل الخدمة</h5>
+                            <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px">تعديل المشروغ</h5>
                         </div>
-                        <div class="col-6" style="position: relative;"><a href="{{ route('admin.services') }}"
-                                style="position: absolute; left: 2%" class="btn btn-primary">عرض الخدمات</a></div>
+                        <div class="col-6" style="position: relative;"><a href="{{ route('admin.apps') }}"
+                                style="position: absolute; left: 2%" class="btn btn-primary">عرض المشاريع البرمجية</a></div>
                     </div>
                 </div>
-                @if ($service)
+                @if ($app)
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-0">
                             <div class=" container-fluid">
@@ -29,30 +29,27 @@
                                                 <div class="card shadow-2-strong card-registration"
                                                     style="border-radius: 15px;">
                                                     <div class="card-body p-4 p-md-5">
-                                                        <form action="{{ route('admin.service.update', $service->id) }}"
+                                                        <form action="{{ route('admin.app.update', $app->id) }}"
                                                             method="POST" enctype="multipart/form-data">
                                                             @csrf
 
                                                             <div class="row">
-                                                                <div class="col-md-12 mb-4">
+                                                                <div class="col-md-6 mb-4">
                                                                     <div class="form-outline">
-                                                                        <label class="form-label" for="name"
+                                                                        <label class="form-label" for="title"
                                                                             style="font-size: 18px">الإسم</label>
-                                                                        <input type="text" name="name" id="name"
+                                                                        <input type="text" name="title" id="title"
                                                                             class="form-control form-control-lg formborderCSS"
-                                                                            value="{{ $service->name }}" />
+                                                                            required value="{{ $app->title }}" />
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-md-12 mb-4">
+                                                                <div class="col-md-6 mb-4">
                                                                     <div class="form-outline">
                                                                         <label class="form-label" for="price"
                                                                             style="font-size: 18px">السعر</label>
                                                                         <input type="text" name="price" id="price"
                                                                             class="form-control form-control-lg formborderCSS"
-                                                                            required value="{{ $service->price }}" />
+                                                                            required value="{{ $app->price }}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -60,9 +57,9 @@
                                                             <div class="row">
                                                                 <div class="col-md-12 mb-4">
                                                                     <div class="form-outline">
-                                                                        <label class="form-label" for="desc"
+                                                                        <label class="form-label" for="body"
                                                                             style="font-size: 18px">الوصف</label>
-                                                                        <textarea name="desc" id="desc" class="form-control form-control-lg formborderCSS" rows="5" required>{{ $service->desc }}</textarea>
+                                                                        <textarea name="body" id="body" class="form-control form-control-lg formborderCSS" rows="5" required>{{ $app->body }}</textarea>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -72,19 +69,167 @@
                                                                     <div class="form-outline">
                                                                         <label class="form-label" for="image"
                                                                             style="font-size: 18px">الصورة</label>
-                                                                        <div class="row">
-                                                                            <div class="col-6">
-                                                                                <img src="{{ asset($service->image) }}"
-                                                                                    class="img-thumbnail"
-                                                                                    alt="product image">
-                                                                            </div>
-                                                                            <div class="col-6">
-                                                                                <input type="file" name="image"
-                                                                                    id="image"
-                                                                                    class="form-control form-control-lg formborderCSS" />
-                                                                            </div>
-                                                                        </div>
+                                                                        <input type="file" name="image" id="image"
+                                                                            class="form-control form-control-lg formborderCSS" />
                                                                     </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-4 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="ref1"
+                                                                            style="font-size: 18px">لينك جوجل بلاي</label>
+                                                                        <input type="text" name="ref1" id="ref1"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->ref1 }}" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="ref2"
+                                                                            style="font-size: 18px">لينك ابب ستور</label>
+                                                                        <input type="text" name="ref2" id="ref2"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->ref2 }}" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="ref3"
+                                                                            style="font-size: 18px">لينك الموقع </label>
+                                                                        <input type="text" name="ref3" id="ref3"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->ref3 }}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <label class="form-label text-center"
+                                                                    style="font-size: 18px">الفائدة</label>
+                                                                <div class="col-md-8 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <textarea class="form-control form-control-lg formborderCSS" name="b_head" id="b_head" cols="30"
+                                                                            rows="1" required placeholder="المقدمة">{{ $app->b_head }}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <input type="file" name="b_image"
+                                                                            id="b_image"
+                                                                            class="form-control form-control-lg formborderCSS" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <textarea name="b_body" id="summernote" cols="30" rows="5"
+                                                                            class="form-control form-control-lg formborderCSS" required>{{ $app->b_body }}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-6 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="pages"
+                                                                            style="font-size: 18px"> صفحات مكتملة </label>
+                                                                        <input type="number" name="pages"
+                                                                            id="pages"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->pages }}" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="downlaods"
+                                                                            style="font-size: 18px"> عدد التحميلات </label>
+                                                                        <input type="number" name="downlaods"
+                                                                            id="downlaods"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->downlaods }}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-6 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="customers"
+                                                                            style="font-size: 18px"> عميل راضي </label>
+                                                                        <input type="number" name="customers"
+                                                                            id="customers"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->customers }}" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="country"
+                                                                            style="font-size: 18px"> بلد متاحة </label>
+                                                                        <input type="number" name="country"
+                                                                            id="country"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            value="{{ $app->country }}" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- <div class="row">
+                                                                <div class="col-md-12 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <label class="form-label" for="images"
+                                                                            style="font-size: 18px">الصور</label>
+                                                                        <input type="file" name="images" id="images"
+                                                                            class="form-control form-control-lg formborderCSS"
+                                                                            multiple>
+                                                                    </div>
+                                                                </div>
+                                                            </div> --}}
+
+                                                            <div class="row">
+                                                                <label class="form-label text-center"
+                                                                    style="font-size: 18px">رأي العميل</label>
+                                                                <div class="col-md-8 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <textarea class="form-control form-control-lg formborderCSS" name="c_name" id="c_name" cols="30"
+                                                                            rows="1" required placeholder="اسم العميل">{{ $app->c_name }}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <input type="file" name="c_logo"
+                                                                            id="c_logo"
+                                                                            class="form-control form-control-lg formborderCSS" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 mb-4">
+                                                                    <div class="form-outline">
+                                                                        <textarea name="c_body" id="c_body" cols="30" rows="5"
+                                                                            class="form-control form-control-lg formborderCSS" placeholder="رأي العميل" required>{{ $app->c_body }}</textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-4 mb-4">
+                                                                    <label class="form-label text-center"
+                                                                        style="font-size: 18px">الصورة</label>
+                                                                    <img src="{{ asset($app->image) }}" alt="image"
+                                                                        class="img-thumbnail">
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <label class="form-label text-center"
+                                                                        style="font-size: 18px">لوجو العميل</label>
+                                                                    <img src="{{ asset($app->c_logo) }}" alt="c_logo"
+                                                                        class="img-thumbnail">
+                                                                </div>
+                                                                <div class="col-md-4 mb-4">
+                                                                    <label class="form-label text-center"
+                                                                        style="font-size: 18px">الفائدة</label>
+                                                                    <img src="{{ asset($app->b_image) }}" alt="b_image"
+                                                                        class="img-thumbnail">
                                                                 </div>
                                                             </div>
 
@@ -106,7 +251,7 @@
                     </div>
                 @else
                     <div class="alert alert-danger text-center mt-5" role="alert">
-                        <h2>لا يوجد خدمة</h2>
+                        <h2>لا يوجد مشروع</h2>
                     </div>
                 @endif
             </div>
