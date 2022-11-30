@@ -31,8 +31,8 @@
                                             الصورة</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             الوصف</th>
-                                        <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
-                                            السعر</th>
+                                        {{-- <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
+                                            السعر</th> --}}
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                             تعديل</th>
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
@@ -60,10 +60,10 @@
                                                     class="text-secondary text-xs font-weight-bold">{{ $service->desc }}</span>
                                             </td>
 
-                                            <td>
+                                            {{-- <td>
                                                 <span
                                                     class="text-secondary text-xs font-weight-bold">{{ $service->price }}</span>
-                                            </td>
+                                            </td> --}}
 
                                             <td class="align-middle text-center">
                                                 <a href="{{ route('admin.service.edit', $service->id) }}"

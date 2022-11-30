@@ -27,7 +27,7 @@ class ServiceController extends Controller
             'name' => 'required',
             'image' => 'required',
             'desc' => 'required',
-            'price' => 'required',
+            // 'price' => 'required',
         ]);
         $data = $request->all();
         if ($request->hasFile('image')) {
@@ -53,7 +53,7 @@ class ServiceController extends Controller
         $request->validate([
             'name' => 'required',
             'desc' => 'required',
-            'price' => 'required',
+            // 'price' => 'required',
         ]);
         $data = $request->all();
         if ($request->hasFile('image')) {

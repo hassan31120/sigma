@@ -45,7 +45,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
+                                                            {{-- <div class="row">
                                                                 <div class="col-md-12 mb-4">
                                                                     <div class="form-outline">
                                                                         <label class="form-label" for="price"
@@ -55,7 +55,7 @@
                                                                             required value="{{ $service->price }}" />
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
 
                                                             <div class="row">
                                                                 <div class="col-md-12 mb-4">
