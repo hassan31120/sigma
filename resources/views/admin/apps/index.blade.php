@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-    المشاريع البرمجية
+    الأعمال
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 row">
                         <div class="col-6">
                             <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px; font-weight: 700;">جدول
-                                المشاريع البرمجية</h5>
+                                الأعمال</h5>
                         </div>
                         <div class="col-6" style="position: relative;"><a href="{{ route('admin.app.create') }}"
                                 style="position: absolute; left: 2%" class="btn btn-primary">إضافة مشروع جديد</a></div>
@@ -50,8 +50,8 @@
 
                                             <td class="align-middle text-center">
                                                 <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
-                                                    <img class="img-thumbnail" src="{{ asset($app->image) }}"
-                                                        height="120" width="160" alt="app">
+                                                    <img class="img-thumbnail" src="{{ asset($app->image) }}" height="120"
+                                                        width="160" alt="app">
                                                 </p>
                                             </td>
 

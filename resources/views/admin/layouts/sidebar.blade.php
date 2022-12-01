@@ -33,7 +33,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/info' ? 'active' : '' }}"
                         href="{{ route('admin.info') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-database"></i>
                         </div>
                         <span class="nav-link-text me-1">البيانات</span>
                     </a>
@@ -42,7 +42,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/teams' ? 'active' : '' }}"
                         href="{{ route('admin.teams') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <span class="nav-link-text me-1">اعضاء الفريق</span>
                     </a>
@@ -51,7 +51,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/partners' ? 'active' : '' }}"
                         href="{{ route('admin.partners') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-handshake"></i>
                         </div>
                         <span class="nav-link-text me-1">الشركاء</span>
                     </a>
@@ -60,7 +60,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/articles' ? 'active' : '' }}"
                         href="{{ route('admin.articles') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-newspaper"></i>
                         </div>
                         <span class="nav-link-text me-1">المقالات</span>
                     </a>
@@ -69,16 +69,16 @@
                     <a class="nav-link {{ Request::path() == 'admin/apps' ? 'active' : '' }}"
                         href="{{ route('admin.apps') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-mobile"></i>
                         </div>
-                        <span class="nav-link-text me-1">البرمجة</span>
+                        <span class="nav-link-text me-1">الأعمال</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/cats' ? 'active' : '' }}"
                         href="{{ route('admin.cats') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-puzzle-piece"></i>
                         </div>
                         <span class="nav-link-text me-1">الأقسام</span>
                     </a>
@@ -87,7 +87,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/products' ? 'active' : '' }}"
                         href="{{ route('admin.products') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-tags"></i>
                         </div>
                         <span class="nav-link-text me-1">المنتجات</span>
                     </a>
@@ -96,7 +96,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/services' ? 'active' : '' }}"
                         href="{{ route('admin.services') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-hand-holding-usd"></i>
                         </div>
                         <span class="nav-link-text me-1">الخدمات</span>
                     </a>
@@ -105,7 +105,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/orders' ? 'active' : '' }}"
                         href="{{ route('admin.orders') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
                         <span class="nav-link-text me-1">الطلبات</span>
                     </a>
@@ -114,7 +114,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/contacts' ? 'active' : '' }}"
                         href="{{ route('admin.contacts') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="fas fa-cog"></i>
+                            <i class="fas fa-link"></i>
                         </div>
                         <span class="nav-link-text me-1">تواصل معنا</span>
                     </a>

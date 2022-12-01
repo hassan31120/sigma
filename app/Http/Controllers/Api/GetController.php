@@ -3,14 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AppResource;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\CategoryResource;
 use App\Http\Resources\InfoResource;
 use App\Http\Resources\PartnerResource;
+use App\Http\Resources\ProductResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\TeamResource;
+use App\Models\App;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Info;
 use App\Models\Partner;
+use App\Models\Product;
 use App\Models\Service;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -93,6 +99,56 @@ class GetController extends Controller
             return response()->json([
                 'success' => false,
                 'articles' => []
+            ], 404);
+        }
+    }
+
+    public function apps()
+    {
+        $apps = App::all();
+        if (count($apps) > 0) {
+            return response()->json([
+                'success' => true,
+                'apps' => AppResource::collection($apps)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'apps' => []
+            ], 404);
+        }
+    }
+
+    public function app($id)
+    {
+        $app = App::find($id);
+        if ($app) {
+            return response()->json([
+                'success' => true,
+                'app' => new AppResource($app)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'there is no such app'
+            ], 404);
+        }
+    }
+
+    public function products()
+    {
+        $cats = Category::all();
+        $products = Product::all();
+        if (count($cats) > 0 && count($products)) {
+            return response()->json([
+                'success' => true,
+                'cats' => CategoryResource::collection($cats),
+                'products' => ProductResource::collection($products),
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'there is no cats or products'
             ], 404);
         }
     }

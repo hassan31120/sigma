@@ -31,3 +31,6 @@ Route::get('/partners', [GetController::class, 'partners']);
 Route::get('/articles', [GetController::class, 'articles']);
 Route::post('/contact', [PostController::class, 'contact']);
 Route::post('/order', [PostController::class, 'order']);
+Route::get('/apps', [GetController::class, 'apps']);
+Route::get('/app/{id}', [GetController::class, 'app']);
+Route::get('/products', [GetController::class, 'products']);
