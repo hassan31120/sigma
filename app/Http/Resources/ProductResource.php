@@ -26,6 +26,7 @@ class ProductResource extends JsonResource
             'ads'       => $this->ads,
             'cat_id'    => $this->cat_id,
             'cat'       => $this->cat->name,
+            'date'      => $this->created_at->format('Y/m/d')
         ];
     }
 }

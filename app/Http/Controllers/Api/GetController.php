@@ -89,16 +89,29 @@ class GetController extends Controller
 
     public function articles()
     {
-        $articles = Article::all();
+        $articles = Article::paginate(4);
         if (count($articles) > 0) {
-            return response()->json([
-                'success' => true,
-                'articles' => ArticleResource::collection($articles)
-            ], 200);
+            return  ArticleResource::collection($articles);
         } else {
             return response()->json([
                 'success' => false,
                 'articles' => []
+            ], 404);
+        }
+    }
+
+    public function article($id)
+    {
+        $article = Article::find($id);
+        if ($article) {
+            return response()->json([
+                'success' => true,
+                'article' => new ArticleResource($article)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'article' => []
             ], 404);
         }
     }
@@ -149,6 +162,22 @@ class GetController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'there is no cats or products'
+            ], 404);
+        }
+    }
+
+    public function product($id)
+    {
+        $product = Product::find($id);
+        if ($product) {
+            return response()->json([
+                'success' => true,
+                'product' => new ProductResource($product)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'product' => []
             ], 404);
         }
     }
