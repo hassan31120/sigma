@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\App;
+use App\Models\AppCat;
 use App\Models\AppImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class AppController extends Controller
      */
     public function create()
     {
-        return view('admin.apps.add');
+        $cats = AppCat::all();
+        return view('admin.apps.add', compact('cats'));
     }
 
     /**
@@ -50,6 +52,7 @@ class AppController extends Controller
             'c_name' => 'required',
             'c_body' => 'required',
             'c_logo' => 'required',
+            'cat_id' => 'required',
         ]);
         $data = $request->except('images');
         if ($request->hasFile('image')) {
@@ -109,8 +112,9 @@ class AppController extends Controller
      */
     public function edit($id)
     {
+        $cats = AppCat::all();
         $app = App::find($id);
-        return view('admin.apps.edit', compact('app'));
+        return view('admin.apps.edit', compact('app', 'cats'));
     }
 
     /**
@@ -138,6 +142,7 @@ class AppController extends Controller
             'c_name' => 'required',
             'c_body' => 'required',
             // 'c_logo' => 'required',
+            'cat_id' => 'required',
         ]);
         $data = $request->except('images');
         if ($request->hasFile('image')) {

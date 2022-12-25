@@ -17,6 +17,7 @@ class PostController extends Controller
             'number' => 'required|numeric',
             'subject' => 'required',
             'message' => 'required',
+            // 'email' => 'email'
         ]);
         if ($validator->fails()) {
             return response()->json([

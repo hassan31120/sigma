@@ -32,6 +32,9 @@ return new class extends Migration
             $table->string('c_name');
             $table->string('c_body');
             $table->string('c_logo');
+            $table->unsignedBigInteger('cat_id');
+            $table->foreign('cat_id')->references('id')->on('app_cats')->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

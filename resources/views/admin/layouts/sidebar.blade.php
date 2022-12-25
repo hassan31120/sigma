@@ -66,12 +66,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/Appcats' ? 'active' : '' }}"
+                        href="{{ route('admin.Appcats') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <span class="nav-link-text me-1">أقسام البرمجة</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/apps' ? 'active' : '' }}"
                         href="{{ route('admin.apps') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="fas fa-mobile"></i>
                         </div>
-                        <span class="nav-link-text me-1">الأعمال</span>
+                        <span class="nav-link-text me-1">البرمجة</span>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -12,6 +12,7 @@ use App\Http\Resources\ProductResource;
 use App\Http\Resources\ServiceResource;
 use App\Http\Resources\TeamResource;
 use App\Models\App;
+use App\Models\AppCat;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Info;
@@ -89,7 +90,7 @@ class GetController extends Controller
 
     public function articles()
     {
-        $articles = Article::paginate(4);
+        $articles = Article::paginate(3);
         if (count($articles) > 0) {
             return  ArticleResource::collection($articles);
         } else {
@@ -119,10 +120,12 @@ class GetController extends Controller
     public function apps()
     {
         $apps = App::all();
+        $cats = AppCat::all();
         if (count($apps) > 0) {
             return response()->json([
                 'success' => true,
-                'apps' => AppResource::collection($apps)
+                'cats' => CategoryResource::collection($cats),
+                'apps' => AppResource::collection($apps),
             ], 200);
         } else {
             return response()->json([

@@ -13,4 +13,8 @@ class App extends Model
     public function images(){
         return $this->hasMany(AppImage::class, 'app_id');
     }
+
+    public function cat(){
+        return $this->belongsTo(AppCat::class, 'cat_id');
+    }
 }

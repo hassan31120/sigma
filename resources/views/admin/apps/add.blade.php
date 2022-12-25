@@ -201,6 +201,20 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="row">
+                                                            <div class="col-md-12 mb-4">
+                                                                <div class="form-outline">
+                                                                    <label class="form-label" for="cat_id"
+                                                                        style="font-size: 18px">القسم</label>
+                                                                    <select name="cat_id" id="cat_id"
+                                                                        class="form-control form-control-lg formborderCSS">
+                                                                        @foreach ($cats as $cat)
+                                                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                         <div class="mt-4 pt-2 text-center">
                                                             <input class="btn btn-primary btn-lg" type="submit"

@@ -27,7 +27,7 @@
                                             الإسم</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             الرقم</th>
-                                        <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
+                                        <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             الايميل</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             الموضوع</th>

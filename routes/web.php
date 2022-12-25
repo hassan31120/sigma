@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppCatController;
 use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CatController;
@@ -117,6 +118,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     // // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');
     // Route::get('/setting/edit/{id}', [SettingsController::class, 'edit'])->name('admin.setting.edit');
     // Route::post('/setting/update/{id}', [SettingsController::class, 'update'])->name('admin.setting.update');
+
+    // app cats
+    Route::get('/Appcats', [AppCatController::class, 'index'])->name('admin.Appcats');
+    Route::get('/Appcat/create', [AppCatController::class, 'create'])->name('admin.Appcat.create');
+    Route::post('/Appcat/store', [AppCatController::class, 'store'])->name('admin.Appcat.store');
+    Route::get('/Appcat/edit/{id}', [AppCatController::class, 'edit'])->name('admin.Appcat.edit');
+    Route::post('/Appcat/update/{id}', [AppCatController::class, 'update'])->name('admin.Appcat.update');
+    Route::get('/Appcat/destroy/{id}', [AppCatController::class, 'destroy'])->name('admin.Appcat.destroy');
 });
 
 Auth::routes();
