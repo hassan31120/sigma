@@ -18,23 +18,12 @@ class AppController extends Controller
         return view('admin.apps.index', compact('apps'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $cats = AppCat::all();
         return view('admin.apps.add', compact('cats'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -93,23 +82,6 @@ class AppController extends Controller
         return redirect(route('admin.apps'))->with('success', 'تم إضافة المشروع بنجاح');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $cats = AppCat::all();
@@ -117,13 +89,6 @@ class AppController extends Controller
         return view('admin.apps.edit', compact('app', 'cats'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $app = App::find($id);
@@ -183,12 +148,6 @@ class AppController extends Controller
         return redirect(route('admin.apps'))->with('success', 'تم تعديل المشروع بنجاح');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $app = App::find($id);

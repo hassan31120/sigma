@@ -5,7 +5,11 @@ use App\Http\Controllers\Admin\AppController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CatController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\GraphicCatController;
+use App\Http\Controllers\Admin\GraphicController;
 use App\Http\Controllers\Admin\InfoController;
+use App\Http\Controllers\Admin\MotionCatController;
+use App\Http\Controllers\Admin\MotionController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProductController;
@@ -126,6 +130,38 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/Appcat/edit/{id}', [AppCatController::class, 'edit'])->name('admin.Appcat.edit');
     Route::post('/Appcat/update/{id}', [AppCatController::class, 'update'])->name('admin.Appcat.update');
     Route::get('/Appcat/destroy/{id}', [AppCatController::class, 'destroy'])->name('admin.Appcat.destroy');
+
+    // motion cats
+    Route::get('/motioncats', [MotionCatController::class, 'index'])->name('admin.motioncats');
+    Route::get('/motioncat/create', [MotionCatController::class, 'create'])->name('admin.motioncat.create');
+    Route::post('/motioncat/store', [MotionCatController::class, 'store'])->name('admin.motioncat.store');
+    Route::get('/motioncat/edit/{id}', [MotionCatController::class, 'edit'])->name('admin.motioncat.edit');
+    Route::post('/motioncat/update/{id}', [MotionCatController::class, 'update'])->name('admin.motioncat.update');
+    Route::get('/motioncat/destroy/{id}', [MotionCatController::class, 'destroy'])->name('admin.motioncat.destroy');
+
+    // motions
+    Route::get('/motions', [MotionController::class, 'index'])->name('admin.motions');
+    Route::get('/motion/create', [MotionController::class, 'create'])->name('admin.motion.create');
+    Route::post('/motion/store', [MotionController::class, 'store'])->name('admin.motion.store');
+    Route::get('/motion/edit/{id}', [MotionController::class, 'edit'])->name('admin.motion.edit');
+    Route::post('/motion/update/{id}', [MotionController::class, 'update'])->name('admin.motion.update');
+    Route::get('/motion/destroy/{id}', [MotionController::class, 'destroy'])->name('admin.motion.destroy');
+
+    // graphic cats
+    Route::get('/graphiccats', [GraphicCatController::class, 'index'])->name('admin.graphiccats');
+    Route::get('/graphiccat/create', [GraphicCatController::class, 'create'])->name('admin.graphiccat.create');
+    Route::post('/graphiccat/store', [GraphicCatController::class, 'store'])->name('admin.graphiccat.store');
+    Route::get('/graphiccat/edit/{id}', [GraphicCatController::class, 'edit'])->name('admin.graphiccat.edit');
+    Route::post('/graphiccat/update/{id}', [GraphicCatController::class, 'update'])->name('admin.graphiccat.update');
+    Route::get('/graphiccat/destroy/{id}', [GraphicCatController::class, 'destroy'])->name('admin.graphiccat.destroy');
+
+    // graphics
+    Route::get('/graphics', [GraphicController::class, 'index'])->name('admin.graphics');
+    Route::get('/graphic/create', [GraphicController::class, 'create'])->name('admin.graphic.create');
+    Route::post('/graphic/store', [GraphicController::class, 'store'])->name('admin.graphic.store');
+    Route::get('/graphic/edit/{id}', [GraphicController::class, 'edit'])->name('admin.graphic.edit');
+    Route::post('/graphic/update/{id}', [GraphicController::class, 'update'])->name('admin.graphic.update');
+    Route::get('/graphic/destroy/{id}', [GraphicController::class, 'destroy'])->name('admin.graphic.destroy');
 });
 
 Auth::routes();

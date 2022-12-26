@@ -84,6 +84,42 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/motioncats' ? 'active' : '' }}"
+                        href="{{ route('admin.motioncats') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <span class="nav-link-text me-1">أقسام الموشن</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/motions' ? 'active' : '' }}"
+                        href="{{ route('admin.motions') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الموشن</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/graphiccats' ? 'active' : '' }}"
+                        href="{{ route('admin.graphiccats') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <span class="nav-link-text me-1">أقسام الجرافيكس</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/graphics' ? 'active' : '' }}"
+                        href="{{ route('admin.graphics') }}">
+                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <span class="nav-link-text me-1">الجرافيكس</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/cats' ? 'active' : '' }}"
                         href="{{ route('admin.cats') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -129,7 +165,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="sidenav-footer position-absolute w-100" style="bottom: 0">
+            <div class="sidenav-footer position-absolute w-100" style="bottom: 0; left:9px">
                 <div class="mx-3">
                     <a class="btn bg-gradient-primary mt-4 w-100" href="{{ route('logout') }}" type="button"><i
                             class="fas fa-sign-out-alt"></i> تسحيل الخروج</a>
