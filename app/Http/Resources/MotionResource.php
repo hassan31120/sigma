@@ -14,6 +14,13 @@ class MotionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'desc' => $this->desc,
+            'image' => asset($this->image),
+            'link' => $this->link,
+            'cat_id ' => $this->cat_id,
+        ];
     }
 }

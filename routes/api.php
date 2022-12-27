@@ -36,3 +36,6 @@ Route::get('/apps', [GetController::class, 'apps']);
 Route::get('/app/{id}', [GetController::class, 'app']);
 Route::get('/products', [GetController::class, 'products']);
 Route::get('/product/{id}', [GetController::class, 'product']);
+Route::get('/motions', [GetController::class, 'motions']);
+Route::get('/graphics', [GetController::class, 'graphics']);
+

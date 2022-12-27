@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\AppResource;
 use App\Http\Resources\ArticleResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\GraphicResource;
 use App\Http\Resources\InfoResource;
+use App\Http\Resources\MotionResource;
 use App\Http\Resources\PartnerResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ServiceResource;
@@ -15,7 +17,11 @@ use App\Models\App;
 use App\Models\AppCat;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Graphic;
+use App\Models\GraphicCat;
 use App\Models\Info;
+use App\Models\Motion;
+use App\Models\MotionCat;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\Service;
@@ -181,6 +187,42 @@ class GetController extends Controller
             return response()->json([
                 'success' => false,
                 'product' => []
+            ], 404);
+        }
+    }
+
+    public function motions()
+    {
+        $motions = Motion::all();
+        $cats = MotionCat::all();
+        if (count($motions) > 0) {
+            return response()->json([
+                'success' => true,
+                'cats' => CategoryResource::collection($cats),
+                'motions' => MotionResource::collection($motions),
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'motions' => []
+            ], 404);
+        }
+    }
+
+    public function graphics()
+    {
+        $graphics = Graphic::all();
+        $cats = GraphicCat::all();
+        if (count($graphics) > 0) {
+            return response()->json([
+                'success' => true,
+                'cats' => CategoryResource::collection($cats),
+                'graphics' => GraphicResource::collection($graphics),
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'graphics' => []
             ], 404);
         }
     }
