@@ -18,7 +18,7 @@ class MotionResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'desc' => $this->desc,
-            'image' => asset($this->image),
+            'image' => $this->when($this->image, asset($this->image)),
             'link' => $this->link,
             'cat_id ' => $this->cat_id,
         ];
