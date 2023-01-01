@@ -13,7 +13,7 @@
                         <div class="col-6">
                             <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px">تعديل التصميم</h5>
                         </div>
-                        <div class="col-6" style="position: relative;"><a href="{{ route('admin.motions') }}"
+                        <div class="col-6" style="position: relative;"><a href="{{ route('admin.graphics') }}"
                                 style="position: absolute; left: 2%" class="btn btn-primary">عرض التصاميم</a></div>
                     </div>
                 </div>
