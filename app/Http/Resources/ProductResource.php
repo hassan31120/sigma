@@ -24,7 +24,7 @@ class ProductResource extends JsonResource
             'ref2'      => $this->ref2,
             'ref3'      => $this->ref3,
             'ads'       => $this->ads,
-            'cat_id'    => $this->cat_id,
+            'cat_id'    =>(integer) $this->cat_id,
             'cat'       => $this->cat->name,
             'date'      => $this->created_at->format('Y/m/d')
         ];

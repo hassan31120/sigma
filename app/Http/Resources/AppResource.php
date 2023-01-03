@@ -33,7 +33,7 @@ class AppResource extends JsonResource
             'c_name'    => $this->c_name,
             'c_body'    => $this->c_body,
             'c_logo'    => asset($this->c_logo),
-            'cat_id'    => $this->cat_id
+            'cat_id'    =>(integer) $this->cat_id
         ];
     }
 }

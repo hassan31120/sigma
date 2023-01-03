@@ -20,7 +20,7 @@ class MotionResource extends JsonResource
             'desc' => $this->desc,
             'image' => $this->when($this->image, asset($this->image)),
             'link' => $this->link,
-            'cat_id' => $this->cat_id,
+            'cat_id' =>(integer) $this->cat_id,
         ];
     }
 }

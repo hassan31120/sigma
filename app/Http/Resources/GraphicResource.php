@@ -18,7 +18,7 @@ class GraphicResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'image' => asset($this->image),
-            'cat_id' => $this->cat_id,
+            'cat_id' =>(integer) $this->cat_id,
         ];
     }
 }
